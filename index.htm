@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Evaluasi Program 7KAIH Murid TarunaMu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        maroon: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                            950: '#4c0519',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-800 antialiased flex flex-col selection:bg-maroon-900 selection:text-white">
+
+    <!-- Header Navigation Bar -->
+    <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm no-print">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center">
+            <div class="flex items-center justify-center space-x-3.5 mx-auto sm:mx-0">
+                <img src="https://lh3.googleusercontent.com/d/1EJvmrf8-sFFIZIEpwg4RG69TJpl02V-d" alt="Logo SMA Taruna Muhammadiyah" class="w-10 h-10 object-contain rounded-xl shadow-md" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EJvmrf8-sFFIZIEpwg4RG69TJpl02V-d';">
+                <div class="text-center sm:text-left">
+                    <h1 class="font-heading text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-none">Survei 7KAIH Murid TarunaMu</h1>
+                    <p class="text-[11px] font-bold text-maroon-800 tracking-wider uppercase mt-1">Evaluasi Karakter & Kebiasaan Murid</p>
+                </div>
+            </div>
+
+            <!-- Header Info Tag -->
+            <div class="flex items-center space-x-2 mx-auto sm:mx-0">
+                <span class="px-3 py-1.5 text-[11px] font-bold tracking-wide uppercase text-maroon-900 bg-maroon-50 rounded-xl border border-maroon-200/70 flex items-center space-x-1.5 shadow-sm">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-maroon-800"></i>
+                    <span>Estimasi: 1-2 Menit</span>
+                </span>
+            </div>
+        </div>
+        <!-- Progress Bar Top Line -->
+        <div class="w-full bg-slate-100 h-1.5 overflow-hidden">
+            <div id="topProgressBar" class="bg-gradient-to-r from-maroon-900 to-rose-700 h-full w-0 transition-all duration-300"></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+
+        <!-- Hero & Info Banner -->
+        <div class="bg-gradient-to-br from-maroon-950 via-maroon-900 to-rose-950 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden text-center">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl mx-auto space-y-3">
+                <h2 class="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight leading-snug">Evaluasi 7 Kebiasaan Anak Indonesia Hebat (7KAIH) di SMA Taruna Muhammadiyah Gunungpring</h2>
+                <p class="text-rose-100/90 text-sm sm:text-base leading-relaxed font-normal">
+                    Survei ini bertujuan memantau perkembangan kedisiplinan dan karakter harian Anda secara objektif. Pilihlah jawaban yang paling mencerminkan kondisi sebenarnya.
+                </p>
+                <div class="pt-2 text-xs text-rose-200/90 flex items-center justify-center space-x-2.5 bg-white/5 backdrop-blur-sm p-3.5 rounded-xl border border-white/10 font-normal text-left sm:text-center">
+                    <i data-lucide="lock" class="w-4 h-4 flex-shrink-0 text-rose-300"></i>
+                    <span><strong class="font-bold text-white">Prinsip Etis & Kerahasiaan:</strong> Jawaban Anda dijaga privasinya dan digunakan semata-mata untuk pembinaan diri serta evaluasi program sekolah/asrama.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Data Form (Identitas: Nama, Kelas X/XI/XII, & Sesi Pengisian 1-4) -->
+        <div id="studentDataCard" class="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-sm no-print space-y-4">
+            <h3 class="font-heading text-base font-extrabold text-slate-900 tracking-tight flex items-center space-x-2">
+                <i data-lucide="user-check" class="w-5 h-5 text-maroon-800"></i>
+                <span>Identitas Responden Murid</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Nama Murid *</label>
+                    <input type="text" id="studentName" placeholder="Masukkan nama lengkap Anda" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-maroon-800 focus:ring-2 focus:ring-maroon-200 outline-none text-sm font-medium transition text-slate-900 placeholder:text-slate-400">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tingkat Kelas *</label>
+                    <select id="studentClass" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-maroon-800 focus:ring-2 focus:ring-maroon-200 outline-none text-sm font-medium transition bg-white text-slate-900">
+                        <option value="">-- Pilih Kelas --</option>
+                        <option value="Kelas X">Kelas X</option>
+                        <option value="Kelas XI">Kelas XI</option>
+                        <option value="Kelas XII">Kelas XII</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Sesi Pengisian *</label>
+                    <select id="sessionNumber" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-maroon-800 focus:ring-2 focus:ring-maroon-200 outline-none text-sm font-medium transition bg-white text-slate-900">
+                        <option value="Pengisian 1">Pengisian 1 (Minggu 1 - Awal)</option>
+                        <option value="Pengisian 2">Pengisian 2 (Minggu 1 - Akhir)</option>
+                        <option value="Pengisian 3">Pengisian 3 (Minggu 2 - Awal)</option>
+                        <option value="Pengisian 4">Pengisian 4 (Minggu 2 - Akhir)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Progress Dashboard -->
+        <div id="progressDashboard" class="bg-white/95 backdrop-blur-md rounded-xl border border-slate-200/90 p-4 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 sticky top-16 z-20 no-print">
+            <div class="flex items-center space-x-3.5 w-full sm:w-auto">
+                <div class="relative w-12 h-12 flex items-center justify-center font-heading font-extrabold text-slate-900 text-sm">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                        <path class="text-slate-100" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="circleProgress" class="text-maroon-800 transition-all duration-300" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <span id="progressPercent" class="absolute">0%</span>
+                </div>
+                <div>
+                    <div class="font-heading text-sm font-extrabold text-slate-900">Progres Kuesioner</div>
+                    <div class="text-xs text-slate-500 font-medium"><span id="answeredCount" class="font-bold text-slate-800">0</span> dari <span id="totalCount" class="font-bold text-slate-800">21</span> Pertanyaan Terjawab</div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
+                <button onclick="scrollToNextUnanswered()" class="px-3.5 py-2 text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl transition flex items-center space-x-1.5 active:scale-95">
+                    <i data-lucide="arrow-down-circle" class="w-4 h-4 text-maroon-800"></i>
+                    <span>Cari Belum Terisi</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Form Questions Container -->
+        <form id="surveyForm" class="space-y-6 no-print">
+            <!-- Dynamic Category Blocks injected by JS -->
+        </form>
+
+        <!-- Submit Button Card -->
+        <div id="submitCard" class="bg-white rounded-2xl border border-slate-200 p-6 text-center shadow-sm space-y-4 no-print">
+            <div id="validationWarning" class="hidden text-amber-800 bg-amber-50 border border-amber-200/80 rounded-xl p-3.5 text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0 text-amber-600"></i>
+                <span id="warningMessage">Harap lengkapi semua pertanyaan sebelum mengirimkan survei.</span>
+            </div>
+            
+            <button id="submitBtn" onclick="generateReport(event)" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-maroon-900 via-maroon-800 to-rose-900 hover:from-maroon-950 hover:to-rose-950 text-white font-heading font-extrabold rounded-xl shadow-lg shadow-maroon-900/25 hover:shadow-maroon-900/40 transition-all transform active:scale-95 flex items-center justify-center space-x-2 mx-auto text-sm sm:text-base tracking-wide">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                <span>Kirim Jawaban Kuesioner</span>
+            </button>
+        </div>
+
+        <!-- Layar Konfirmasi Terima Kasih (Ditampilkan Setelah Submit) -->
+        <div id="thankYouScreen" class="hidden bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-12 text-center shadow-lg space-y-6 my-8">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                <i data-lucide="check-circle-2" class="w-12 h-12"></i>
+            </div>
+            <div class="space-y-3 max-w-md mx-auto">
+                <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">Respon Berhasil Terkirim!</h3>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+                    Terima kasih atas partisipasi Anda. Jawaban Anda telah tersimpan secara realtime untuk evaluasi program 7KAIH SMA Taruna Muhammadiyah Gunungpring.
+                </p>
+            </div>
+            <div class="pt-4">
+                <button onclick="resetAndFillAgain()" class="px-6 py-3 bg-maroon-900 hover:bg-maroon-950 text-white font-heading font-bold text-xs sm:text-sm rounded-xl shadow-md transition flex items-center space-x-2 mx-auto active:scale-95">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                    <span>Kirim Tanggapan Lain</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Identitas Sekolah -->
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 border-t border-slate-800 text-center no-print">
+        <div class="max-w-5xl mx-auto px-4 space-y-2 flex flex-col items-center">
+            <img src="https://lh3.googleusercontent.com/d/1EJvmrf8-sFFIZIEpwg4RG69TJpl02V-d" alt="Logo SMA Taruna Muhammadiyah" class="w-12 h-12 object-contain mb-1" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EJvmrf8-sFFIZIEpwg4RG69TJpl02V-d';">
+            <p class="font-heading font-bold text-white text-sm">SMA Taruna Muhammadiyah Gunungpring</p>
+            <p class="text-xs text-slate-400">Sistem Evaluasi Implementasi 7 Kebiasaan Anak Indonesia Hebat (7KAIH)</p>
+            <p class="text-[11px] text-slate-500 pt-2">&copy; SMA Taruna Muhammadiyah Gunungpring. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-2 text-sm font-medium pointer-events-none">
+        <i data-lucide="info" class="w-4 h-4 text-rose-400"></i>
+        <span id="toastMsg">Pesan Notifikasi</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // ------------------------------------------------------------------
+        // TEMPELKAN URL GOOGLE APPS SCRIPT ANDA DI DALAM TANDA KUTIP DI BAWAH INI:
+        // ------------------------------------------------------------------
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxULTNd1DegHZOZ-pA876x-rRwhGYqxbzb4U6DbIjgC-xdoS1Ed9MSFQh9CNL9ewox0rA/exec';
+
+        // 7KAIH Survey Data Structure - Sederhana, Relevan & Terukur: 3 Pertanyaan per Kebiasaan (Total 21 Soal)
+        const surveyData = [
+            {
+                id: "habit1",
+                title: "Kebiasaan 1: Bangun Pagi",
+                icon: "sun",
+                color: "amber",
+                questions: [
+                    {
+                        id: "q1",
+                        question: "Pukul berapa Anda biasanya terbangun di asrama/rumah setiap paginya?",
+                        options: [
+                            { label: "Sebelum 04.00", score: 4 },
+                            { label: "04.00 - 04.30", score: 3 },
+                            { label: "04.30 - 05.00", score: 2 },
+                            { label: "Setelah 05.00", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q2",
+                        question: "Apa yang biasanya membuat Anda berhasil bangun di pagi hari?",
+                        options: [
+                            { label: "Bangun mandiri (alami/alarm)", score: 4 },
+                            { label: "Suara azan/bel asrama", score: 3 },
+                            { label: "Dibangunkan teman barak", score: 2 },
+                            { label: "Dibangunkan pembina/musyrif/orang tua", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q3",
+                        question: "Dalam seminggu terakhir, berapa kali Anda terlambat mengikuti sholat Subuh berjamaah atau apel pagi?",
+                        options: [
+                            { label: "Tidak pernah", score: 4 },
+                            { label: "1-2 kali", score: 3 },
+                            { label: "3-4 kali", score: 2 },
+                            { label: "Selalu terlambat", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit2",
+                title: "Kebiasaan 2: Beribadah",
+                icon: "heart-handshake",
+                color: "emerald",
+                questions: [
+                    {
+                        id: "q4",
+                        question: "Seberapa konsisten Anda melaksanakan sholat 5 waktu secara berjamaah di masjid/musholla?",
+                        options: [
+                            { label: "Selalu berjamaah", score: 4 },
+                            { label: "Sering berjamaah", score: 3 },
+                            { label: "Kadang-kadang", score: 2 },
+                            { label: "Jarang berjamaah", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q5",
+                        question: "Seberapa sering Anda melaksanakan ibadah sunnah (Tahajud, Dhuha, atau Puasa Sunnah) dalam sepekan?",
+                        options: [
+                            { label: "Lebih dari 4 kali", score: 4 },
+                            { label: "2-4 kali", score: 3 },
+                            { label: "1 kali", score: 2 },
+                            { label: "Belum melaksanakan", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q6",
+                        question: "Berapa durasi waktu yang Anda luangkan untuk tilawah Al-Qur'an setiap harinya?",
+                        options: [
+                            { label: "Lebih dari 30 menit", score: 4 },
+                            { label: "15-30 menit", score: 3 },
+                            { label: "Kurang dari 15 menit", score: 2 },
+                            { label: "Tidak membaca", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit3",
+                title: "Kebiasaan 3: Berolahraga",
+                icon: "activity",
+                color: "blue",
+                questions: [
+                    {
+                        id: "q7",
+                        question: "Berapa kali dalam seminggu Anda berolahraga (termasuk binsik, senam, Tapak Suci, atau mandiri)?",
+                        options: [
+                            { label: "Lebih dari 3 kali", score: 4 },
+                            { label: "2-3 kali", score: 3 },
+                            { label: "1 kali", score: 2 },
+                            { label: "Tidak pernah", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q8",
+                        question: "Apakah Anda selalu mengikuti kegiatan olahraga wajib (Senam Anak Indonesia Hebat, dll)?",
+                        options: [
+                            { label: "Selalu hadir aktif", score: 4 },
+                            { label: "Hadir tapi kurang aktif", score: 3 },
+                            { label: "Kadang absen/izin", score: 2 },
+                            { label: "Sering bolos", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q9",
+                        question: "Setelah rutin berolahraga, apa dampak utama yang Anda rasakan pada fokus belajar?",
+                        options: [
+                            { label: "Lebih fokus dan suasana hati positif", score: 4 },
+                            { label: "Mengurangi sedikit stres", score: 3 },
+                            { label: "Biasa saja", score: 2 },
+                            { label: "Malah terlalu lelah untuk belajar", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit4",
+                title: "Kebiasaan 4: Makan Sehat & Bergizi",
+                icon: "apple",
+                color: "red",
+                questions: [
+                    {
+                        id: "q10",
+                        question: "Saat makan harian, seberapa sering Anda menghabiskan seluruh porsi termasuk sayur dan lauk?",
+                        options: [
+                            { label: "Selalu habis bersih", score: 4 },
+                            { label: "Sering habis", score: 3 },
+                            { label: "Sering menyisakan sayur", score: 2 },
+                            { label: "Banyak makanan terbuang", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q11",
+                        question: "Dalam seminggu, berapa kali Anda mengonsumsi makanan instan (seperti mi instan/jajanan tidak sehat)?",
+                        options: [
+                            { label: "Tidak pernah", score: 4 },
+                            { label: "1-2 kali", score: 3 },
+                            { label: "3-4 kali", score: 2 },
+                            { label: "Lebih dari 4 kali", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q12",
+                        question: "Berapa banyak perkiraan air putih yang Anda minum dalam sehari?",
+                        options: [
+                            { label: "Lebih dari 2 Liter (Sangat cukup)", score: 4 },
+                            { label: "1.5 - 2 Liter (Cukup)", score: 3 },
+                            { label: "1 - 1.5 Liter (Kurang)", score: 2 },
+                            { label: "Kurang dari 1 Liter (Sangat kurang)", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit5",
+                title: "Kebiasaan 5: Gemar Belajar",
+                icon: "book-open",
+                color: "purple",
+                questions: [
+                    {
+                        id: "q13",
+                        question: "Saat jam wajib belajar malam di asrama/rumah, kegiatan apa yang paling mendominasi waktu Anda?",
+                        options: [
+                            { label: "Fokus mengulang materi & buat tugas", score: 4 },
+                            { label: "Membaca buku literasi tambahan", score: 4 },
+                            { label: "Mengobrol dengan teman", score: 2 },
+                            { label: "Melamun/Tidur", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q14",
+                        question: "Di luar jam belajar sekolah, berapa lama Anda berinisiatif belajar mandiri dalam sehari?",
+                        options: [
+                            { label: "Lebih dari 2 jam", score: 4 },
+                            { label: "1 - 2 jam", score: 3 },
+                            { label: "Kurang dari 1 jam", score: 2 },
+                            { label: "Tidak pernah", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q15",
+                        question: "Seberapa sering Anda membaca buku non-pelajaran akademik (agama, motivasi, biografi)?",
+                        options: [
+                            { label: "Setiap hari", score: 4 },
+                            { label: "2-3 kali seminggu", score: 3 },
+                            { label: "1 kali seminggu", score: 2 },
+                            { label: "Tidak pernah", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit6",
+                title: "Kebiasaan 6: Bermasyarakat",
+                icon: "users",
+                color: "teal",
+                questions: [
+                    {
+                        id: "q16",
+                        question: "Di waktu luang, berapa banyak waktu yang Anda habiskan mengobrol tatap muka tanpa gawai?",
+                        options: [
+                            { label: "Lebih dari 2 jam", score: 4 },
+                            { label: "1 - 2 jam", score: 3 },
+                            { label: "Kurang dari 1 jam", score: 2 },
+                            { label: "Lebih suka menyendiri", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q17",
+                        question: "Seberapa aktif Anda berpartisipasi dalam kegiatan piket kelas/kamar (korve) atau kerja bakti?",
+                        options: [
+                            { label: "Sangat aktif & inisiatif tinggi", score: 4 },
+                            { label: "Aktif saat ditugaskan saja", score: 3 },
+                            { label: "Kurang aktif/Sering menghindar", score: 2 },
+                            { label: "Tidak pernah ikut", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q18",
+                        question: "Jika melihat teman barak/kelas sakit atau kesulitan, apa reaksi spontan Anda?",
+                        options: [
+                            { label: "Langsung membantu dan melapor pembina/guru", score: 4 },
+                            { label: "Membantu sekadarnya", score: 3 },
+                            { label: "Menunggu orang lain yang membantu", score: 2 },
+                            { label: "Kurang peduli", score: 1 }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "habit7",
+                title: "Kebiasaan 7: Tidur Cepat",
+                icon: "moon",
+                color: "indigo",
+                questions: [
+                    {
+                        id: "q19",
+                        question: "Pukul berapa Anda biasanya mematikan lampu/mulai memejamkan mata setiap malamnya?",
+                        options: [
+                            { label: "Sebelum 21.30", score: 4 },
+                            { label: "21.30 - 22.00", score: 3 },
+                            { label: "22.00 - 23.00", score: 2 },
+                            { label: "Setelah 23.00", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q20",
+                        question: "Seberapa sering Anda masih menggunakan gawai/HP di tempat tidur sebelum tidur?",
+                        options: [
+                            { label: "Tidak pernah (HP dikumpulkan/disimpan)", score: 4 },
+                            { label: "Kadang-kadang", score: 3 },
+                            { label: "Sering", score: 2 },
+                            { label: "Selalu", score: 1 }
+                        ]
+                    },
+                    {
+                        id: "q21",
+                        question: "Dengan pola tidur Anda saat ini, bagaimana kualitas istirahat yang dirasakan saat bangun pagi?",
+                        options: [
+                            { label: "Sangat nyenyak dan segar optimal", score: 4 },
+                            { label: "Cukup baik", score: 3 },
+                            { label: "Sering terbangun di malam hari", score: 2 },
+                            { label: "Kurang tidur dan kepala pusing", score: 1 }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // State & LocalStorage Keys
+        const STORAGE_KEY = '7KAIH_SURVEY_RESPONSES_V2';
+        let userAnswers = {};
+
+        // Kirim Data Otomatis ke Google Sheets
+        async function sendToGoogleSheets(payload) {
+            if (!SCRIPT_URL || SCRIPT_URL.includes('PASTE_URL_APPS_SCRIPT_ANDA_DI_SINI')) {
+                console.warn('URL Google Apps Script belum diisi di kode HTML!');
+                return;
+            }
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                console.log('Data berhasil terkirim ke Google Sheets');
+            } catch (err) {
+                console.error('Spreadsheet Sync Error:', err);
+            }
+        }
+
+        // Render Form Questions (Kuesioner Sederhana & Tipografi Profesional)
+        function renderSurvey() {
+            const formContainer = document.getElementById('surveyForm');
+            let questionNumber = 1;
+            let html = '';
+
+            surveyData.forEach((category) => {
+                html += `
+                    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition hover:shadow-md">
+                        <div class="bg-maroon-950 text-white p-4 sm:p-5 flex items-center justify-between border-b border-maroon-900">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-maroon-900/60 border border-maroon-700/50 flex items-center justify-center text-rose-300">
+                                    <i data-lucide="${category.icon}" class="w-4 h-4"></i>
+                                </div>
+                                <h3 class="font-heading text-base sm:text-lg font-extrabold tracking-tight">${category.title}</h3>
+                            </div>
+                            <span class="text-[11px] font-bold tracking-wider uppercase bg-maroon-900 text-rose-200 px-3 py-1 rounded-full border border-maroon-800">3 Soal</span>
+                        </div>
+                        <div class="p-4 sm:p-6 space-y-5">
+                `;
+
+                category.questions.forEach((q) => {
+                    const savedValue = userAnswers[q.id];
+                    html += `
+                        <div id="card_${q.id}" class="question-card p-4 sm:p-5 rounded-2xl border border-slate-200/80 bg-slate-50/40 space-y-3.5 transition">
+                            <div class="flex items-start space-x-3">
+                                <span class="bg-maroon-100 text-maroon-900 font-heading font-extrabold text-[11px] px-2.5 py-1 rounded-lg mt-0.5 flex-shrink-0 tracking-wide uppercase">No. ${questionNumber}</span>
+                                <h4 class="font-heading text-sm sm:text-base font-bold text-slate-900 leading-snug tracking-tight">${q.question}</h4>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    `;
+
+                    q.options.forEach((opt) => {
+                        const isChecked = savedValue === opt.label ? 'checked' : '';
+                        const activeClass = isChecked ? 'border-maroon-800 bg-maroon-50/90 ring-2 ring-maroon-700/20 font-semibold text-slate-900 shadow-sm' : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-700 font-medium';
+
+                        html += `
+                            <label class="option-label group flex items-start space-x-3 p-3.5 rounded-xl border ${activeClass} cursor-pointer transition text-xs sm:text-sm leading-relaxed">
+                                <input type="radio" name="${q.id}" value="${opt.label}" data-score="${opt.score}" ${isChecked} onchange="onOptionSelect('${q.id}', '${opt.label}')" class="mt-0.5 text-maroon-800 focus:ring-maroon-700 rounded-full border-slate-300">
+                                <span class="group-hover:text-slate-900 transition">${opt.label}</span>
+                            </label>
+                        `;
+                    });
+
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                    questionNumber++;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            formContainer.innerHTML = html;
+            lucide.createIcons();
+            updateProgress();
+        }
+
+        // Option Selection Handler
+        function onOptionSelect(questionId, value) {
+            userAnswers[questionId] = value;
+            saveAnswers();
+            updateCardHighlight(questionId);
+            updateProgress();
+        }
+
+        function updateCardHighlight(qId) {
+            const card = document.getElementById(`card_${qId}`);
+            if (!card) return;
+            const labels = card.querySelectorAll('.option-label');
+            const radioInputs = card.querySelectorAll('input[type="radio"]');
+
+            radioInputs.forEach((radio, idx) => {
+                const label = labels[idx];
+                if (radio.checked) {
+                    label.className = "option-label group flex items-start space-x-3 p-3.5 rounded-xl border border-maroon-800 bg-maroon-50/90 ring-2 ring-maroon-700/20 font-semibold text-slate-900 shadow-sm cursor-pointer transition text-xs sm:text-sm leading-relaxed";
+                } else {
+                    label.className = "option-label group flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 font-medium text-slate-700 cursor-pointer transition text-xs sm:text-sm leading-relaxed";
+                }
+            });
+        }
+
+        // Progress Counter & Progress Bar
+        function updateProgress() {
+            const totalQuestions = 21;
+            const answered = Object.keys(userAnswers).length;
+            const percent = Math.round((answered / totalQuestions) * 100);
+
+            document.getElementById('answeredCount').innerText = answered;
+            document.getElementById('totalCount').innerText = totalQuestions;
+            document.getElementById('progressPercent').innerText = `${percent}%`;
+            document.getElementById('topProgressBar').style.width = `${percent}%`;
+
+            const circle = document.getElementById('circleProgress');
+            circle.setAttribute('stroke-dasharray', `${percent}, 100`);
+
+            if (answered === totalQuestions) {
+                document.getElementById('validationWarning').classList.add('hidden');
+            }
+        }
+
+        // Find and scroll to next unanswered question
+        function scrollToNextUnanswered() {
+            for (let category of surveyData) {
+                for (let q of category.questions) {
+                    if (!userAnswers[q.id]) {
+                        const el = document.getElementById(`card_${q.id}`);
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            el.classList.add('ring-2', 'ring-amber-400', 'bg-amber-50');
+                            setTimeout(() => {
+                                el.classList.remove('ring-2', 'ring-amber-400', 'bg-amber-50');
+                            }, 2000);
+                            showToast("Menampilkan pertanyaan yang belum diisi");
+                            return;
+                        }
+                    }
+                }
+            }
+            showToast("Semua pertanyaan sudah terisi!");
+        }
+
+        // Save responses to LocalStorage
+        function saveAnswers() {
+            const info = {
+                name: document.getElementById('studentName').value,
+                class: document.getElementById('studentClass').value,
+                session: document.getElementById('sessionNumber').value,
+                answers: userAnswers
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(info));
+        }
+
+        // Load saved responses
+        function loadAnswers() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    if (parsed.name) document.getElementById('studentName').value = parsed.name;
+                    if (parsed.class) document.getElementById('studentClass').value = parsed.class;
+                    if (parsed.session) document.getElementById('sessionNumber').value = parsed.session;
+                    if (parsed.answers) userAnswers = parsed.answers;
+                } catch(e) {
+                    console.error("Gagal membaca memori tersimpan", e);
+                }
+            }
+        }
+
+        // Process Submit without displaying evaluation results
+        function generateReport(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('studentName').value.trim();
+            const sClass = document.getElementById('studentClass').value;
+            const session = document.getElementById('sessionNumber').value;
+
+            if (!name || !sClass) {
+                document.getElementById('validationWarning').classList.remove('hidden');
+                document.getElementById('warningMessage').innerText = "Harap isi Nama Murid dan Tingkat Kelas terlebih dahulu.";
+                window.scrollTo({ top: 150, behavior: 'smooth' });
+                return;
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            if (answeredCount < 21) {
+                document.getElementById('validationWarning').classList.remove('hidden');
+                document.getElementById('warningMessage').innerText = `Masih ada ${21 - answeredCount} pertanyaan yang belum diisi. Harap selesaikan seluruh pertanyaan.`;
+                scrollToNextUnanswered();
+                return;
+            }
+
+            document.getElementById('validationWarning').classList.add('hidden');
+
+            // Calculate Scores per Habit for Google Sheets recording
+            let totalMaxScore = 0;
+            let totalEarnedScore = 0;
+
+            surveyData.forEach(cat => {
+                let catScore = 0;
+                let catMax = cat.questions.length * 4;
+
+                cat.questions.forEach(q => {
+                    const ans = userAnswers[q.id];
+                    const optObj = q.options.find(o => o.label === ans);
+                    if (optObj) {
+                        catScore += optObj.score;
+                    }
+                });
+
+                totalEarnedScore += catScore;
+                totalMaxScore += catMax;
+            });
+
+            const overallPercent = Math.round((totalEarnedScore / totalMaxScore) * 100);
+
+            // Determine Predicate
+            let grade = "";
+            if (overallPercent >= 88) grade = "Taruna Utama (Sangat Baik)";
+            else if (overallPercent >= 75) grade = "Taruna Madya (Baik)";
+            else if (overallPercent >= 60) grade = "Taruna Muda (Cukup)";
+            else grade = "Perlu Pembinaan Khusus";
+
+            // Payload untuk Google Sheets
+            const sheetsPayload = {
+                name: name,
+                class: sClass,
+                session: session,
+                score: `${overallPercent}%`,
+                grade: grade,
+                answers: userAnswers
+            };
+
+            // Kirim Otomatis ke Google Sheets secara Realtime
+            sendToGoogleSheets(sheetsPayload);
+
+            // Clear saved answers
+            localStorage.removeItem(STORAGE_KEY);
+
+            // Sembunyikan Form & Tampilkan Layar Konfirmasi Terima Kasih
+            document.getElementById('studentDataCard').classList.add('hidden');
+            document.getElementById('progressDashboard').classList.add('hidden');
+            document.getElementById('surveyForm').classList.add('hidden');
+            document.getElementById('submitCard').classList.add('hidden');
+            
+            document.getElementById('thankYouScreen').classList.remove('hidden');
+
+            lucide.createIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast("Jawaban Anda berhasil terkirim!");
+        }
+
+        // Isi Ulang Survei Baru
+        function resetAndFillAgain() {
+            userAnswers = {};
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentClass').value = '';
+            document.getElementById('sessionNumber').value = 'Pengisian 1';
+
+            document.getElementById('studentDataCard').classList.remove('hidden');
+            document.getElementById('progressDashboard').classList.remove('hidden');
+            document.getElementById('surveyForm').classList.remove('hidden');
+            document.getElementById('submitCard').classList.remove('hidden');
+            document.getElementById('thankYouScreen').classList.add('hidden');
+
+            renderSurvey();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toast Handler
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Window Onload Initialization
+        window.onload = function() {
+            loadAnswers();
+            renderSurvey();
+
+            ['studentName', 'studentClass', 'sessionNumber'].forEach(id => {
+                document.getElementById(id).addEventListener('change', saveAnswers);
+                document.getElementById(id).addEventListener('input', saveAnswers);
+            });
+        }
+    </script>
+</body>
+</html>
